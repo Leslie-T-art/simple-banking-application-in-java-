@@ -1,0 +1,492 @@
+import java.util.ArrayList;
+
+class CurrentAccount {
+			class SavingsAccount {
+
+				//Class Variables
+				double balance;
+				String customerID;
+				String customerType;
+				String customerName;
+				double customerBalance;
+
+				private double interest_rate;
+
+				//Class constructor
+				SavingsAccount(String cid, String ctype, String cname, double cbalance) {
+					customerID = cid;
+					customerType = ctype;
+					customerName = cname;
+					customerBalance = cbalance;
+				}
+
+				//Function for Depositing money
+				void deposit(int amount) {
+					if (amount != 0) {
+						balance = balance + amount;
+						System.out.println(balance + " has been deposited in the account of " + customerName  );
+
+					}
+				}
+
+				//Function for Withdrawing money
+
+				void withdrawSavings (int amount) {
+					if (amount != 0) {
+					    double withdrawalFee = balance - 5;
+					    balance = (balance - amount*withdrawalFee);
+						System.out.println(balance + " has been withdrawn from account of " + customerName   );
+						System.out.println( " new balance = " + balance);
+					}
+				}
+
+
+				void withdraw(int amount) {
+					if (amount != 0) {
+						balance = balance - amount;
+						System.out.println(balance + " has been withdrawn from account of " + customerName  );
+
+					}
+				}
+
+
+
+				//Function calculating interest of current funds after a number of years
+				void calculateInterest(int years) {
+					double interestRate = .0185;
+					double newBalance = (balance * interestRate * years) + balance;
+					System.out.println("intrest has been applied to the account of  "  + customerName + years + " years, you balance will be: " + newBalance);
+				}
+
+				//Function showing the main menu
+				void showDetails() {
+
+					System.out.println("Number :  " + customerID );
+					System.out.println("Type : " + customerType );
+					System.out.println("Name :  " + customerName);
+					System.out.println("Balance : " + customerBalance );
+				    System.out.println();
+
+				}
+
+				 public double getInterest_rate() {
+					return interest_rate;
+				}
+
+				public void setInterest_rate(double interest_rate) {
+					this.interest_rate = interest_rate;
+				}
+
+
+			}
+
+
+
+
+	//Class Variables
+	double balance;
+	int previousTransaction;
+	String customerID;
+	String customerType;
+	String customerName;
+	double customerBalance;
+
+
+	//Class constructor
+	CurrentAccount(String cid, String ctype, String cname, double cbalance) {
+		customerID = cid;
+		customerType = ctype;
+		customerName = cname;
+		this.customerBalance = cbalance;
+	}
+
+	//Function for Depositing money
+	void deposit(int amount) {
+		if (amount != 0) {
+			balance = balance + amount - 2.50;
+			System.out.println( "An amount has been deposited in the account of " + customerName  );
+			System.out.println( " new balance = " + balance);
+
+
+
+
+		}
+	}
+
+	//Function for Withdrawing money
+	void withdrawCurrrent (int amount) {
+		if (amount != 0) {
+		    double withdrawalFee =  5;
+		    balance = (balance - amount-withdrawalFee);
+			System.out.println(balance + " has been withdrawn from account of " + customerName   );
+			System.out.println( " new balance = " + balance);
+		}
+	}
+
+	void withdraw(int amount) {
+		if (amount != 0) {
+		    double withdrawalFee = balance - 5;
+		    balance = (balance - amount)*withdrawalFee;
+			System.out.println(balance + " has been withdrawn from account of " + customerName   );
+			System.out.println( " new balance = " + balance);
+		}
+	}
+
+
+
+	//Function calculating interest of current funds after a number of years
+	void calculateInterest(int years) {
+		double interestRate = .0185;
+		double newBalance = (balance * interestRate * years) + balance;
+		System.out.println("The current interest rate is " + (100 * interestRate) + "%");
+		System.out.println(customerName + years + "  balance is now: " + newBalance);
+		System.out.println( " new balance = " + balance);
+		System.out.println( );
+
+
+	}
+
+
+
+	void showDetails() {
+		System.out.println("Number :  " + customerID );
+		System.out.println("Type : " + customerType );
+		System.out.println("Name :  " + customerName);
+		System.out.println("Balance : " + customerBalance );
+		System.out.println();
+
+
+	}
+}
+
+
+
+	class CurrentAccount_Fred extends CurrentAccount {
+
+		CurrentAccount_Fred(String cid, String ctype, String cname, double cbalance) {
+			super(cid, ctype, cname, cbalance);
+
+		}
+	}
+
+	 class Flintstone extends CurrentAccount {
+
+		Flintstone(String cid, String ctype, String cname, double cbalance) {
+			super(cid, ctype, cname, cbalance);
+			// TODO Auto-generated constructor stub
+		}
+
+
+
+	}
+
+	  class InvestmentAccount extends CurrentAccount {
+
+			InvestmentAccount(String cid, String ctype, String cname, double cbalance) {
+				super(cid, ctype, cname, cbalance);
+				// TODO Auto-generated constructor stub
+			}
+
+		}
+	 class SavingsAccount_barney extends SavingsAccount {
+
+			SavingsAccount_barney(String cid, String ctype, String cname, double cbalance) {
+				super(cid, ctype, cname, cbalance);
+				// TODO Auto-generated constructor stub
+			}
+
+
+
+
+		}
+
+
+
+
+
+
+
+
+
+
+public class AccountTest {
+
+
+
+
+	public static void main(String[] args) {
+
+
+			CurrentAccount Fred_Clinton = new CurrentAccount("102000", "CurrentAccount", "Fred_Clinton", 0.0);
+			Fred_Clinton.showDetails();
+
+
+
+			CurrentAccount Brok_Monday = new CurrentAccount("102001",  "CurrentAccount", "Brok_Monday", 0.0);
+			Brok_Monday.showDetails();
+
+
+
+
+
+
+			SavingsAccount Wilma_Fedston = new SavingsAccount("103000", "SavingsAccount", "Wilma_Fedston", 0.0);
+			Wilma_Fedston.showDetails();
+
+
+
+
+
+
+
+			InvestmentAccount Tod_Esra = new InvestmentAccount("104000","InvestmentAccount","Tod_Esra", 0.0);
+			Tod_Esra.showDetails();
+
+			System.out.println("=============================================================================================================================================");
+			System.out.println( "____________________________________________| Bank Account Operations|_____________________________________________________________ "  );
+			System.out.println("=============================================================================================================================================");
+
+
+			//question 2a
+			System.out.println();
+			System.out.println("A new Account has been created below : ");
+			CurrentAccount fred_flintstone = new CurrentAccount("102003", "CurrentAccount", "Fred_Flintstone", 0.0);
+			fred_flintstone.showDetails();
+
+			//question 2b
+			System.out.println();
+			System.out.println("A new Account has been created below : ");
+			SavingsAccount Barne = new SavingsAccount("103003", "SavingsAccount", "Barney Rubble", 0.0);
+			Barne.showDetails();
+
+			////question2c
+			System.out.println();
+			System.out.println("A new Account has been created below : ");
+			InvestmentAccount Wilmar = new InvestmentAccount("104002","InvestmentAccount","Wilmar_Flintstone", 0.0);
+			Wilmar.showDetails();
+
+			//question 2d
+			Fred_Clinton.deposit(2000);
+			System.out.println("Fred Clinton's updated account now is : ");
+
+			CurrentAccount Fred_Clinton2 = new CurrentAccount("102000", "CurrentAccount", "Fred_Clinton", 1997.5);
+			Fred_Clinton2.showDetails();
+			System.out.println();
+
+			//question 2e
+			fred_flintstone.deposit(3000);
+			System.out.println("Fred Flinton's updated account now is : ");
+			SavingsAccount Barne2 = new SavingsAccount("103003", "SavingsAccount", "Barney Rubble", 2997.5);
+			Barne2.showDetails();
+			System.out.println();
+
+			//question 2f
+			Wilmar.deposit(5000);
+			System.out.println("Wilmar Flintstone's updated account now is : ");
+			InvestmentAccount Wilmar2 = new InvestmentAccount("104002","InvestmentAccount","Wilmar_Flintstone",4997.5);
+			Wilmar2.showDetails();
+			System.out.println();
+			//question 2g
+			fred_flintstone.deposit(400);
+			System.out.println("Fred Flintstone's updated account now is : ");
+			CurrentAccount fred_flintstone2 = new CurrentAccount("102003", "CurrentAccount", "Fred_Flintstone",  3395.0);
+			fred_flintstone2.showDetails();
+			System.out.println();
+			//question 2h
+			fred_flintstone.deposit(800);
+			System.out.println("Fred Flintstone's updated account now is : ");
+			CurrentAccount fred_flintstone3 = new CurrentAccount("102003", "CurrentAccount", "Fred_Flintstone", 4192.5);
+			fred_flintstone3.showDetails();
+			System.out.println();
+
+			//question 2i
+			fred_flintstone.calculateInterest(1);
+			System.out.println("Fred Flintstone's updated account now is : ");
+			CurrentAccount fred_flintstone8 = new CurrentAccount("102003", "CurrentAccount", "Fred_Flintstone",  4192.5);
+			fred_flintstone8.showDetails();
+			System.out.println();
+			//question 2j
+			 fred_flintstone.withdrawCurrrent(2300);
+			 System.out.println("Fred Flintstone's updated account now is : ");
+			 CurrentAccount fred_flintstone9 = new CurrentAccount("102003", "CurrentAccount", "Fred_Flintstone", 1887.5);
+				fred_flintstone9.showDetails();
+			System.out.println();
+
+			//question 2k
+
+			System.out.println("Fred_Flinstones account has been closed");
+			CurrentAccount fred_flintstone91 = new CurrentAccount("_", "_", "_", 0.0);
+			fred_flintstone91.showDetails();
+			//question 2l
+			System.out.println();
+
+			//question 2m
+			Barne.withdraw(2000);
+			System.out.println("Barney Rubble's updated account now is : ");
+			SavingsAccount Barne8 = new SavingsAccount("103003", "SavingsAccount", "Barney Rubble", 0.0);
+			Barne8.showDetails();
+			System.out.println();
+
+			//question 2n
+			Barne.calculateInterest(1);
+			System.out.println("Barney Rubble's updated account now is : ");
+			SavingsAccount Barne9 = new SavingsAccount("103003", "SavingsAccount", "Barney Rubble", 10000.0);
+			Barne9.showDetails();
+			System.out.println();
+
+			//question 2o
+			Barne.withdraw(900);
+			System.out.println("Barney Rubble's updated account now is : ");
+
+			SavingsAccount Barne6 = new SavingsAccount("103003", "SavingsAccount", "Barney Rubble", 9.09545E7);
+			Barne6.showDetails();
+			System.out.println();
+
+			//question 2p
+			System.out.println("Barney Rubble's account has been closed");
+			SavingsAccount Barne61 = new SavingsAccount("_", "_", "_", 0.0);
+			Barne61.showDetails();
+			System.out.println();
+			//question 2q
+			System.out.println();
+			System.out.println("The banks own current account value is ");
+
+			//question 2r
+
+			Wilmar.deposit(200);
+			System.out.println("Wilmar Flintstone's updated account now is : ");
+			InvestmentAccount Wilmar57 = new InvestmentAccount("104002","InvestmentAccount","Wilmar_Flintstone", 5195.0);
+			Wilmar57.showDetails();
+			System.out.println();
+
+			//question 2s
+			Wilmar.withdraw(600);
+			InvestmentAccount Wilmar67 = new InvestmentAccount("104002","InvestmentAccount","Wilmar_Flintstone", 2.384805E7);
+			Wilmar67.showDetails();
+			System.out.println();
+			//question t
+			System.out.println();
+			System.out.println("The banks own current account value is ");
+
+
+
+
+
+
+
+	//Question 3
+	System.out.println("_____________________________________________________Bank Ledger___________________________________________________________________________________");
+	System.out.println("===================================================================================================================================================");
+
+    //c
+
+	ArrayList<InvestmentAccount> ledger = new ArrayList<InvestmentAccount>();
+
+	ArrayList<String> output = new ArrayList<String>();
+	output.add("Ledger after the creation of Wilmar_Flintstone's Investment  Account : " );
+	ledger.add(Wilmar);
+	System.out.println(output);
+	InvestmentAccount Wilmar5 = new InvestmentAccount("104002","InvestmentAccount","Wilmar_Flintstone", 0.0);
+	Wilmar5.showDetails();
+	System.out.println();
+	System.out.println();
+	System.out.println(ledger);
+
+	//f
+	ArrayList<String> output2 = new ArrayList<String>();
+	output2.add("Ledger after depositing $5000 Wilmar_Flintstone's Investment  Account : " );
+
+	System.out.println(output2);
+	InvestmentAccount Wilmar3 = new InvestmentAccount("104002","InvestmentAccount","Wilmar_Flintstone", 5000.0);
+	Wilmar3.showDetails();
+	ledger.add(Wilmar3);
+	System.out.println(ledger);
+	System.out.println();
+	System.out.println();
+
+
+	//j
+	ArrayList<CurrentAccount> ledger2 = new ArrayList<CurrentAccount>();
+
+	ArrayList<String> output3 = new ArrayList<String>();
+	output2.add("Ledger after withdrawing $2300 from Fred_Flintstone's Current  Account : " );
+
+	System.out.println(output3);
+	CurrentAccount fred_flintstone5 = new CurrentAccount("102003", "CurrentAccount", "Fred_Flintstone", 110.8);
+	fred_flintstone5.showDetails();
+	ledger2.add(fred_flintstone5);
+	System.out.println(ledger2);
+	System.out.println();
+	System.out.println();
+
+	//k
+	ArrayList<String> output4 = new ArrayList<String>();
+	output4.add(" Fred_Flintstone's Current  Account has been closed  : " );
+
+	System.out.println(output4);
+
+	CurrentAccount fred_flintstone6 = new CurrentAccount("_", "_", "_", 0.0);
+	fred_flintstone3.showDetails();
+	ledger2.add(fred_flintstone6);
+	System.out.println(ledger2);
+	System.out.println();
+	System.out.println();
+
+	//p
+	ArrayList<SavingsAccount> ledger3 = new ArrayList<SavingsAccount>();
+	ArrayList<String> output5 = new ArrayList<String>();
+	output5.add("Barney Rubble's Savings  Account has been closed ");
+
+	System.out.println(output5);
+
+
+	SavingsAccount Barne1 = new SavingsAccount("_", "_", "_", 0.0);
+	Barne1.showDetails();
+	ledger2.add(Barne1 );
+	System.out.println(ledger3);
+System.out.println();
+	System.out.println();
+
+
+	//t
+
+	ArrayList<CurrentAccount> ledger6 = new ArrayList<CurrentAccount>();
+	ArrayList<String> output6 = new ArrayList<String>();
+	output6.add("the bank's current balance is   :   ");
+
+	System.out.println(output6);
+	CurrentAccount ZanamweBank = new CurrentAccount("102999",  "BankCurrentAccount", "ZanamweBank", 0.0);
+
+	ZanamweBank.showDetails();
+	ledger6.add(ZanamweBank);
+	System.out.println(ledger6);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	}
+
+}
+class SavingsAccount extends CurrentAccount {
+
+	SavingsAccount(String cid, String ctype, String cname, double cbalance) {
+		super(cid, ctype, cname, cbalance);
+
+	}
+
+
+}
+
+
+
